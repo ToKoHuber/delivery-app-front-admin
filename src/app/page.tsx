@@ -1,9 +1,19 @@
+import { AddDishCard } from "./_components/cards/AddDishCard";
+import { ProductCard } from "./_components/cards/ProductCard";
+import { Category } from "./_components/menuCategory/Category";
 import { Navigation } from "./_components/Navigation";
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex">
       <Navigation />
+      <div>
+        <Category />
+        <div className="flex gap-4">
+          <AddDishCard />
+          <ProductCard />
+        </div>
+      </div>
     </div>
   );
 }

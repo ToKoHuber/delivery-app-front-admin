@@ -1,7 +1,7 @@
 import { LogoHorizon } from "./logos/LogoHorizon";
-import { FoodMenu } from "./Navigation/FoodMenu";
-import { Orders } from "./Navigation/Orders";
-import { Settings } from "./Navigation/Settings";
+import { FoodMenu } from "./navigation/FoodMenu";
+import { Orders } from "./navigation/Orders";
+import { Settings } from "./navigation/Settings";
 
 export const Navigation = () => {
   return (
