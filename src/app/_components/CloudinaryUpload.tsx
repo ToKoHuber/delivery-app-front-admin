@@ -56,7 +56,7 @@ export const CloudinaryUpload = () => {
       {image && (
         <div className="rounded-lg">
           <Image alt="uploaded" src={image} width={400} height={400} />
-          <a href={image}></a>
+          <a href={image}>View image</a>
         </div>
       )}
     </div>

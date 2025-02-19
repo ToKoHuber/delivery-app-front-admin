@@ -1,4 +1,4 @@
-import { PlusButton } from "../menuCategory/PlusButton";
+import { PlusButton } from "../../foodMenu/_components/dishesCategory/PlusButton";
 
 export const AddDishCard = () => {
   return (

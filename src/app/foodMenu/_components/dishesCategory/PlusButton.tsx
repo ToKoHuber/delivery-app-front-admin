@@ -5,7 +5,7 @@ export const PlusButton = () => {
   return (
     <Button
       variant="destructive"
-      className="px-4 py-2 border-[1px] rounded-full bg-red-500"
+      className="size-[36px] px-4 py-2 border-[1px] rounded-full bg-red-500"
     >
       <Plus />
     </Button>

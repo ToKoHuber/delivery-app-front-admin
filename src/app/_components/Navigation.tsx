@@ -5,7 +5,7 @@ import { Settings } from "./navigation/Settings";
 
 export const Navigation = () => {
   return (
-    <div className="flex flex-col gap-10 w-[165px] h-[100vh] py-9 px-5">
+    <div className="flex flex-col gap-10 w-[205px] h-[100vh] py-9 px-5 bg-[#FFFFFF]">
       <LogoHorizon />
       <div className="flex flex-col gap-6">
         <FoodMenu />
