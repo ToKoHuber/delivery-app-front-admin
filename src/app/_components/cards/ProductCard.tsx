@@ -5,7 +5,7 @@ export const ProductCard = () => {
     <div className="w-[270.75px] h-[241px] p-4  flex flex-col gap-5 justify-center items-center border rounded-[20px] border-soid border-[#E4E4E7]">
       <div className="overflow-hidden rounded-[12px] w-[238.75px] h-[129px]">
         <Image
-          src="https://media.self.com/photos/57d8952946d0cb351c8c50c9/master/w_1600%2Cc_limit/DELICIOUS-1-POT-Lentil-and-Black-Bean-Chili-Smoky-hearty-PROTEIN-and-fiber-packed-vegan-glutenfree-lentils-chili-healthy-recipe2.jpg"
+          src="https://res.cloudinary.com/daevsbyyv/image/upload/v1739936828/wiayzstyrnzrvho36jld.png"
           width={238.75}
           height={129}
           alt="Dish Picture"

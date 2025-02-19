@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["media.self.com"], // Allow images from this domain
+    domains: ["media.self.com", "res.cloudinary.com"], // Allow images from this domain
   },
 };
 
