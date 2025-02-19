@@ -39,7 +39,7 @@ export function TableDemo() {
             <TableCell className="w-[56px] p-4 text-[14px] text-[#09090B] font-normal leading-5">
               {order._id}
             </TableCell>
-            <TableCell className="w-[213.5px] px-4  truncate">
+            <TableCell className="w-[213.5px] px-4 truncate">
               {order.user}
             </TableCell>
             <TableCell className="w-[160px] px-4">
