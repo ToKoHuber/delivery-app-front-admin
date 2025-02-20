@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Table,
@@ -10,12 +11,15 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { foodOrder } from "@/lib/foodOrder"; // Assuming this is the correct import
+import { ChevronsUpDown } from "lucide-react";
+
+// const SELECT_ITEMS = ["Pending", "Delivered", "In Transit"];
 
 export function TableDemo() {
   return (
-    <Table className="w-[1171px] p-6 flex flex-col rounded-xl bg-[#FAFAFA] text-[14px] text-[#71717A] font-medium leading-5">
+    <Table className="w-[1171px] flex flex-col rounded-xl bg-white text-[14px] text-[#71717A] font-medium leading-5">
       <TableHeader className="border border-b-none border-[#E4E4E7]">
-        <TableRow>
+        <TableRow className="bg-[#F4F4F5]">
           <TableHead className="w-[48px] h-[52px] p-4">
             <Checkbox className="size-4" />
           </TableHead>
@@ -30,7 +34,7 @@ export function TableDemo() {
           <TableHead className="w-[160px] px-4">Delivery state</TableHead>
         </TableRow>
       </TableHeader>
-      <TableBody>
+      <TableBody className="bg-white">
         {foodOrder.map((order) => (
           <TableRow key={order._id} className="border border-[#E4E4E7]">
             <TableCell className="w-[48px] h-[52px] p-4 ">
@@ -58,7 +62,12 @@ export function TableDemo() {
               {order.deliveryAddress}
             </TableCell>
             <TableCell className="w-[160px] px-4">
-              {order.deliveryStatus}
+              <Badge
+                variant="outline"
+                className="p-[10px] flex gap-[10px] justify-between"
+              >
+                {order.deliveryStatus} <ChevronsUpDown className="size-4" />
+              </Badge>
             </TableCell>
           </TableRow>
         ))}
