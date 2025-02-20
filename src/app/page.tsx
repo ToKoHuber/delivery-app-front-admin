@@ -1,4 +1,5 @@
 import { AddDishCard } from "./_components/cards/AddDishCard";
+import { AddNewCategory } from "./_components/cards/AddNewCategory";
 import { EditDishInfo } from "./_components/cards/EditDishInfo";
 import { DishCategory } from "./_components/cards/editDishInfo/DishCategory";
 import { ProductCard } from "./_components/cards/ProductCard";
@@ -16,6 +17,7 @@ export default function Home() {
           {/* <ProductCard /> */}
           <EditDishInfo />
           {/* <CloudinaryUpload /> */}
+          <AddNewCategory />
         </div>
       </div>
     </div>

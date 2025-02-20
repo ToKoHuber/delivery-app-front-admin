@@ -5,7 +5,7 @@ export const Price = () => {
     <div className="flex gap-4 w-[424px] py-3">
       <p className="w-[120px] text-[#71717A]">Price</p>
       <Input
-        type="email"
+        type="text"
         placeholder="Email"
         className="w-[288px] p-[8px 12px]"
       />
