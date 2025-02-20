@@ -23,7 +23,7 @@ export function TableDemo() {
           <TableHead className="w-[48px] h-[52px] p-4">
             <Checkbox className="size-4" />
           </TableHead>
-          <TableHead className="w-[56px] p-4 flex items-center text-[14px] text-[#09090B] font-normal leading-5">
+          <TableHead className="w-[56px] p-4 text-[14px] text-[#09090B] font-normal leading-5">
             №
           </TableHead>
           <TableHead className="w-[213.5px] px-4">Customer</TableHead>
@@ -44,7 +44,9 @@ export function TableDemo() {
               {order._id}
             </TableCell>
             <TableCell className="w-[213.5px] px-4 truncate">
-              {order.user}
+              <p className="w-[213.5px] truncate overflow-hidden p-4">
+                {order.user}
+              </p>
             </TableCell>
             <TableCell className="w-[160px] px-4">
               {order.foodOrderItems.length} foods
