@@ -1,5 +1,7 @@
 import { Pencil } from "lucide-react";
 import Image from "next/image";
+import EditPopover from "./editDishInfo/EditPopover";
+import { EditProfile } from "./editDishInfo/EditProfile";
 
 export const ProductCard = ({ food }) => {
   console.log(food);
@@ -12,8 +14,9 @@ export const ProductCard = ({ food }) => {
           height={129}
           alt="Dish Picture"
         />
-        <div className="size-[44px] p-[8px 16px] absolute bottom-5 right-5 bg-[#FFFFFF] rounded-full flex justify-center items-center">
-          <Pencil className="size-4" stroke="#EF4444" />
+        <div className="absolute bottom-5 right-5">
+          {/* <EditPopover /> */}
+          <EditProfile />
         </div>
       </div>
 

@@ -1,8 +1,7 @@
 import { Navigation } from "./_components/Navigation";
 import { CloudinaryUpload } from "./_components/CloudinaryUpload";
-import { AddNewDish } from "./_components/cards/AddNewDish";
 import { AddDishCard } from "./_components/cards/AddDishCard";
-import { ProductCard } from "./_components/cards/ProductCard";
+import { EditDishInfo } from "./_components/cards/EditDishInfo";
 
 export default function Home() {
   return (
@@ -13,6 +12,7 @@ export default function Home() {
         {/* <DeliveryPhoto /> */}
         <AddDishCard />
         {/* <ProductCard /> */}
+        <EditDishInfo />
       </div>
     </div>
   );
