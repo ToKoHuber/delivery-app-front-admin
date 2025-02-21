@@ -12,9 +12,7 @@ import { AddButton } from "./AddNewDishInfo/AddButton";
 
 export const AddNewDishInfo = () => {
   const [file, setFile] = useState(null);
-  const [image, setImage] = useState(
-    "https://res.cloudinary.com/daevsbyyv/image/upload/v1739963522/qand6fibxlpdsginqpub.png"
-  );
+  const [image, setImage] = useState(null);
 
   const PRESET_NAME = "food-delivery-app";
   const CLOUDINARY_NAME = "794588517496998";
@@ -61,11 +59,8 @@ export const AddNewDishInfo = () => {
       <FoodNamePirce />
       <Ingredients />
 
-      <FoodImage />
-      <AddButton />
-
-      <InputImage handleFile={handleFile} image={image} />
-      <DeleteSave handleUpload={handleUpload} />
+      <FoodImage file={file} image={image} handleFile={handleFile} />
+      <AddButton handleUpload={handleUpload} />
     </div>
   );
 };

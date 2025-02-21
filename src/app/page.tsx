@@ -1,10 +1,8 @@
 import { Navigation } from "./_components/Navigation";
 import { CloudinaryUpload } from "./_components/CloudinaryUpload";
-import DeliveryPhoto from "./logIn/_components/form/DeliveryPhoto";
-import { EditNewCategory } from "./_components/cards/EditNewCategory";
+import { AddNewDish } from "./_components/cards/AddNewDish";
 import { AddDishCard } from "./_components/cards/AddDishCard";
-import { EditDishInfo } from "./_components/cards/EditDishInfo";
-import { AddNewDishInfo } from "./_components/cards/AddNewDishInfo";
+import { ProductCard } from "./_components/cards/ProductCard";
 
 export default function Home() {
   return (
@@ -13,9 +11,8 @@ export default function Home() {
       <div className="flex flex-col gap-4">
         <CloudinaryUpload />
         {/* <DeliveryPhoto /> */}
-        <EditNewCategory />
-        <EditDishInfo />
-        <AddNewDishInfo />
+        <AddDishCard />
+        {/* <ProductCard /> */}
       </div>
     </div>
   );

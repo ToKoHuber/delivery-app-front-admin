@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 
-export const AddButton = () => {
+export const AddButton = ({ handleUpload }) => {
   return (
     <div className="w-[412px] flex justify-end">
-      <Button>Add Dish</Button>
+      <Button onClick={handleUpload}>Add Dish</Button>
     </div>
   );
 };
