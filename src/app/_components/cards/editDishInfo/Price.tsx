@@ -6,7 +6,7 @@ export const Price = () => {
       <p className="w-[120px] text-[#71717A]">Price</p>
       <Input
         type="text"
-        placeholder="Email"
+        placeholder="Enter price info..."
         className="w-[288px] p-[8px 12px]"
       />
     </div>

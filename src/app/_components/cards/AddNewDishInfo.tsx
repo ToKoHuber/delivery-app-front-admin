@@ -1,17 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 import { DeleteSave } from "./editDishInfo/DeleteSave";
-import { DishCategory } from "./editDishInfo/DishCategory";
-import { DishName } from "./editDishInfo/DishName";
-import { Ingredients } from "./editDishInfo/Ingredients";
 import { InputImage } from "./editDishInfo/InputImage";
-import { Price } from "./editDishInfo/Price";
 import { Title } from "./editDishInfo/Title";
+import FoodNamePirce from "./AddNewDishInfo/FoodNamePrice";
+import { Ingredients } from "./AddNewDishInfo/Ingredients";
+import { FoodImage } from "./AddNewDishInfo/FoodImage";
+import { AddButton } from "./AddNewDishInfo/AddButton";
 
-export const EditDishInfo = () => {
+export const AddNewDishInfo = () => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(
     "https://res.cloudinary.com/daevsbyyv/image/upload/v1739963522/qand6fibxlpdsginqpub.png"
@@ -56,16 +55,17 @@ export const EditDishInfo = () => {
   };
 
   return (
-    <div className="w-[472px] p-6 rounded-[12px] gap-3 bg-[#FFFFFF]">
-      <Title text="Dish info" />
-      <div>
-        <DishName />
-        <DishCategory />
-        <Ingredients />
-        <Price />
-        <InputImage handleFile={handleFile} image={image} />
-        <DeleteSave handleUpload={handleUpload} />
-      </div>
+    <div className="w-[460px] p-6 rounded-[12px] flex flex-col gap-6 bg-[#FFFFFF]">
+      <Title text="Add new Dish to Appetizers" />
+
+      <FoodNamePirce />
+      <Ingredients />
+
+      <FoodImage />
+      <AddButton />
+
+      <InputImage handleFile={handleFile} image={image} />
+      <DeleteSave handleUpload={handleUpload} />
     </div>
   );
 };

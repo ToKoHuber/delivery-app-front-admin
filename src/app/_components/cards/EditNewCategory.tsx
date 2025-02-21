@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X } from "lucide-react";
 
-export const AddNewCategory = () => {
+export const EditNewCategory = () => {
   return (
     <div className="w-[460px] p-6 flex flex-col bg-[#FFF] rounded-xl">
       <div className="w-[412px] pb-4 flex justify-between">
@@ -13,7 +13,7 @@ export const AddNewCategory = () => {
           <X stroke="black" />
         </Button>
       </div>
-      <div className="w-[412px] pb-4 gap-[8px]">
+      <div className="w-[412px] pb-4 flex flex-col gap-[8px]">
         <h2>Category name</h2>
         <Input
           placeholder="Type category name..."
