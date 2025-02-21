@@ -12,8 +12,8 @@ export default function foodMenu() {
   return (
     <div className="flex bg-[#D9D9D9]">
       <Navigation />
-      <div className="flex flex-col px-4 gap-6 border border-red-500">
-        {/* <div className="flex flex-col w-full max-w-[calc(100vw-205px)] items-center px-4 gap-6"> */}
+      {/* <div className="flex flex-col px-4 gap-6 border border-red-500"> */}
+      <div className="flex flex-col w-full max-w-[calc(100vw-205px)] items-center px-4 gap-6 border border-red-500">
         <Header categoryCount={categoryCount} />
         <ProductLists categoryCount={categoryCount} />
       </div>

@@ -8,7 +8,7 @@ export default function Home() {
       <Navigation />
       <div>
         <CloudinaryUpload />
-        <DeliveryPhoto />
+        {/* <DeliveryPhoto /> */}
       </div>
     </div>
   );
