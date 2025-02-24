@@ -1,7 +1,8 @@
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { PlusButton } from "./PlusButton";
+import { PlusButton } from "../../../../_components/cards/PlusButton";
 import { dataFood } from "@/lib/dataFood";
 import { Badge } from "@/components/ui/badge";
+import { PlusButtonPopOver } from "./PlusButtonPopover";
 
 export default function DishCategories({
   categoryCount,
@@ -37,7 +38,7 @@ export default function DishCategories({
             </ToggleGroupItem>
           );
         })}
-        <PlusButton />
+        <PlusButtonPopOver />
       </ToggleGroup>
     </div>
   );

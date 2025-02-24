@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { LogoHorizon } from "./logos/LogoHorizon";
 import { FoodMenu } from "./navigation/FoodMenu";
 import { Orders } from "./navigation/Orders";
@@ -6,10 +7,17 @@ import { Settings } from "./navigation/Settings";
 export const Navigation = () => {
   return (
     <div className="flex flex-col gap-10 w-[205px] h-[100vh] py-9 px-5 bg-[#FFFFFF]">
-      <LogoHorizon />
+      <Link href="/foodMenu">
+        <LogoHorizon />
+      </Link>
       <div className="flex flex-col gap-6">
-        <FoodMenu />
-        <Orders />
+        <Link href="/foodMenu">
+          <FoodMenu />
+        </Link>
+        <Link href="/orders">
+          <Orders />
+        </Link>
+
         <Settings />
       </div>
     </div>

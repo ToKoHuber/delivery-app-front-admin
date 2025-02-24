@@ -8,7 +8,7 @@ import { Title } from "./editDishInfo/Title";
 import FoodNamePirce from "./AddNewDishInfo/FoodNamePrice";
 import { Ingredients } from "./AddNewDishInfo/Ingredients";
 import { FoodImage } from "./AddNewDishInfo/FoodImage";
-import { AddButton } from "./AddNewDishInfo/AddButton";
+import { AddButton } from "./AddNewDishInfo/AddDishButton";
 
 export const AddNewDishInfo = () => {
   const [file, setFile] = useState(null);

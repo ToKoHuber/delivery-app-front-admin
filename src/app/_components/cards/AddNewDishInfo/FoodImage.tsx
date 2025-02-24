@@ -12,7 +12,11 @@ export const FoodImage = ({ image, handleFile, file }) => {
       <div>
         <label htmlFor="addNewDishImage">
           {image ? (
-            <img className="w-[100%] " src={image} alt="" />
+            <img
+              className="w-[100%] max-h-[138px] object-contain"
+              src={image}
+              alt=""
+            />
           ) : (
             <div className="flex flex-col items-center justify-center gap-2 w-[100%] h-[138px] rounded-[6px] p-4 bg-[#2563EB33] border border-dashed border-[#2563EB33]">
               <Image className="size-8 rounded-full p-2 bg-[#FFFFFF]" />
