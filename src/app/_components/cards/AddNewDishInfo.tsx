@@ -53,8 +53,8 @@ export const AddNewDishInfo = () => {
   };
 
   return (
-    <div className="w-[460px] p-6 rounded-[12px] flex flex-col gap-6 bg-[#FFFFFF]">
-      <Title text="Add new Dish to Appetizers" />
+    <div className="rounded-[12px] flex flex-col gap-6 bg-[#FFFFFF]">
+      {/* <Title text="Add new Dish to Appetizers" /> */}
 
       <FoodNamePirce />
       <Ingredients />

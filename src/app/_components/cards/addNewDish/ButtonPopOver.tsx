@@ -21,7 +21,7 @@ export function ButtonPopOver() {
         </div>
       </DialogTrigger>
       <DialogContent>
-        <DialogTitle>Ask how to hide this title section</DialogTitle>
+        <DialogTitle>Add new Dish to Appetizers</DialogTitle>
         <AddNewDishInfo />
       </DialogContent>
     </Dialog>

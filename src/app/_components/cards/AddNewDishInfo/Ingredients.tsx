@@ -2,7 +2,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export const Ingredients = () => {
   return (
-    <div className="flex flex-col gap-2 w-[412px]">
+    <div className="flex flex-col gap-2 w-full">
       <label
         htmlFor=""
         className="w-[100%] text-[#09090B] text-[14px] font-medium leading-[14px]"
