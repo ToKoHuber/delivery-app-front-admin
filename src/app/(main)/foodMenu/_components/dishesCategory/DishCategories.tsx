@@ -14,10 +14,10 @@ export default function DishCategories({
 
   const getCategories = async () => {
     const data = await fetch("http://localhost:8000/food-category");
-    console.log("data printing", data);
+    // console.log("data printing", data);
     const jsonData = await data.json();
     setCategories(jsonData.getCategory || []);
-    console.log("jsonData printing", jsonData);
+    // console.log("jsonData printing", jsonData);
   };
   useEffect(() => {
     getCategories();
