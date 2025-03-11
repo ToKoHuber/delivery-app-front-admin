@@ -14,9 +14,10 @@ export default function DishCategories({
 
   const getCategories = async () => {
     const data = await fetch("http://localhost:8000/food-category");
+    console.log("data printing", data);
     const jsonData = await data.json();
-    setCategories(jsonData.data);
-    console.log(jsonData);
+    setCategories(jsonData.getCategory || []);
+    console.log("jsonData printing", jsonData);
   };
   useEffect(() => {
     getCategories();
@@ -46,19 +47,19 @@ export default function DishCategories({
         variant="outline"
         className="max-w-[1123px] text-[14px] font-medium leading-5 flex flex-wrap justify-start gap-3"
       >
-        {Object.entries(categoryCount).map(([category, count]) => {
+        {categories?.map((category) => {
           return (
             <ToggleGroupItem
-              key={category} // ✅ Unique key added
-              value={category} // ✅ Dynamic value
+              key={category.categoryName} // ✅ Unique key added
+              value={category.categoryName} // ✅ Dynamic value
               className="px-4 py-2 border border-solid rounded-full flex gap-[8px]"
             >
               <div>
                 <p className="text-[#18181B] text-[14px] font-medium leading-5">
-                  {category}
+                  {category.categoryName}
                 </p>
               </div>
-              <Badge variant="default">{count}</Badge>
+              {/* <Badge variant="default">{count}</Badge> */}
             </ToggleGroupItem>
           );
         })}
