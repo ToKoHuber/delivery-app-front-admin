@@ -1,8 +1,6 @@
 "use client";
 
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { PlusButton } from "../../../../_components/cards/PlusButton";
-import { dataFood } from "@/lib/dataFood";
 import { Badge } from "@/components/ui/badge";
 import { PlusButtonPopOver } from "./PlusButtonPopover";
 import { useEffect, useState } from "react";
@@ -12,28 +10,29 @@ export default function DishCategories({
 }: {
   categoryCount: Record<string, number>;
 }) {
-  // const [categories, setCategories] = useState();
+  const [categories, setCategories] = useState();
 
-  // const getCategories = async () => {
-  //   const data = await fetch("http://localhost:8000/food-category");
-  //   const jsonData = await data.json();
-  //   setCategories(jsonData.data);
-  //   console.log(jsonData);
-  // };
-  // useEffect(() => {
-  //   getCategories();
-  // }, []);
+  const getCategories = async () => {
+    const data = await fetch("http://localhost:8000/food-category");
+    const jsonData = await data.json();
+    setCategories(jsonData.data);
+    console.log(jsonData);
+  };
+  useEffect(() => {
+    getCategories();
+  }, []);
 
-  // const createCategory = async (category: string) => {
-  //   const data = await fetch("http://localhost:8000/food-category", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ categoryName: "" }),
-  //   });
-  //   getCategories();
-  // };
+  const createCategory = async (category: string) => {
+    const data = await fetch("http://localhost:8000/food-category", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ categoryName: category }),
+    });
+    getCategories();
+  };
+
   return (
     <div className="w-[1171px] p-6 flex flex-col gap-4 rounded-xl bg-[#FAFAFA]">
       <div>

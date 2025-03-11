@@ -21,7 +21,7 @@ export function PlusButtonPopOver() {
         </div>
       </DialogTrigger>
       <DialogContent>
-        <DialogTitle>Ask how to hide this title section</DialogTitle>
+        <DialogTitle>Add new category</DialogTitle>
         {/* //sdad */}
         <EditNewCategory />
       </DialogContent>
