@@ -11,6 +11,7 @@ import {
   ContextMenuItem,
   ContextMenuTrigger,
 } from "@/components/ui/context-menu";
+import { EditButton } from "./EditButton";
 
 export default function DishCategories({
   categoryCount,
@@ -19,6 +20,7 @@ export default function DishCategories({
 }) {
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
+  const [updatedCategory, setEditCategory] = useState("");
 
   const getCategories = async () => {
     const data = await fetch("http://localhost:4000/food-category");
@@ -40,7 +42,7 @@ export default function DishCategories({
       body: JSON.stringify({ categoryName: newCategory }),
     });
     //dialogoo haah
-    //nemegsen datagaa avah
+    //nemsen datagaa avah
     getCategories();
   };
 
@@ -50,11 +52,27 @@ export default function DishCategories({
     });
     getCategories();
   };
+  const updateCategory = async (id: string) => {
+    const data = await fetch(`http://localhost:4000/food-category/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ categoryName: updatedCategory }),
+    });
+    getCategories();
+  };
 
   const handleChange = (e) => {
     // console.log(e);
     const { value } = e.target;
     setNewCategory(value);
+  };
+
+  const handleUpdate = (e) => {
+    // console.log(e);
+    const { value } = e.target;
+    setEditCategory(value);
   };
 
   return (
@@ -87,6 +105,7 @@ export default function DishCategories({
                 </ToggleGroupItem>
               </ContextMenuTrigger>
               <ContextMenuContent>
+                {/* <EditButton /> */}
                 <ContextMenuItem>Edit</ContextMenuItem>
                 <ContextMenuItem onClick={() => deleteCategory(category._id)}>
                   Delete
