@@ -1,5 +1,5 @@
-import { CloudinaryUpload } from "../_components/CloudinaryUpload";
-import DeliveryPhoto from "./_components/form/DeliveryPhoto";
+import { CloudinaryUpload } from "@/app/_components/CloudinaryUpload";
+import DeliveryPhoto from "../_components/DeliveryPhoto";
 
 export default function LogIn() {
   return (
