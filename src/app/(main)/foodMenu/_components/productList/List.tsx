@@ -30,7 +30,9 @@ export default function List({
     getFoods();
   }, []);
 
-  const filteredDishes = foods.filter((food) => food.category === category);
+  const filteredDishes = foods.filter(
+    (food) => food.category.categoryName === category
+  );
   console.log("list food printing", foods);
   return (
     <div className="w-[1171px] p-5 flex flex-col gap-4 rounded-xl bg-[#FAFAFA]">

@@ -26,7 +26,7 @@ export const ProductCard = ({ food }) => {
             {food.foodName}
           </p>
           <p className="text-[#09090B] text-[12px] font-normal leading-4">
-            ${food.price}
+            {food.price}₮
           </p>
         </div>
         <p className="text-[12px] font-normal leading-4 text-[#09090B]">

@@ -5,33 +5,56 @@ import { Badge } from "@/components/ui/badge";
 import { PlusButtonPopOver } from "./PlusButtonPopover";
 import { useEffect, useState } from "react";
 
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu";
+
 export default function DishCategories({
   categoryCount,
 }: {
   categoryCount: Record<string, number>;
 }) {
-  const [categories, setCategories] = useState();
+  const [categories, setCategories] = useState([]);
+  const [newCategory, setNewCategory] = useState("");
 
   const getCategories = async () => {
     const data = await fetch("http://localhost:4000/food-category");
     // console.log("data printing", data);
     const jsonData = await data.json();
     setCategories(jsonData.getCategory || []);
-    // console.log("jsonData printing", jsonData);
+    console.log("jsonData printing", jsonData);
   };
   useEffect(() => {
     getCategories();
   }, []);
 
   const createCategory = async (category: string) => {
-    const data = await fetch("http://localhost:8000/food-category", {
+    const data = await fetch("http://localhost:4000/food-category", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ categoryName: category }),
+      body: JSON.stringify({ categoryName: newCategory }),
+    });
+    //dialogoo haah
+    //nemegsen datagaa avah
+    getCategories();
+  };
+
+  const deleteCategory = async (id: string) => {
+    const data = await fetch(`http://localhost:4000/food-category/${id}`, {
+      method: "DELETE",
     });
     getCategories();
+  };
+
+  const handleChange = (e) => {
+    // console.log(e);
+    const { value } = e.target;
+    setNewCategory(value);
   };
 
   return (
@@ -41,30 +64,42 @@ export default function DishCategories({
           Dishes category
         </p>
       </div>
-
       <ToggleGroup
         type="multiple"
         variant="outline"
         className="max-w-[1123px] text-[14px] font-medium leading-5 flex flex-wrap justify-start gap-3"
       >
-        {Object.entries(categoryCount).map(([category, count]) => {
+        {categories.map((category) => {
           return (
-            <ToggleGroupItem
-              key={category} // ✅ Unique key added
-              value={category} // ✅ Dynamic value
-              className="px-4 py-2 border border-solid rounded-full flex gap-[8px]"
-            >
-              <div>
-                <p className="text-[#18181B] text-[14px] font-medium leading-5">
-                  {category}
-                </p>
-              </div>
-              <Badge variant="default">{count}</Badge>
-            </ToggleGroupItem>
+            <ContextMenu>
+              <ContextMenuTrigger>
+                <ToggleGroupItem
+                  key={category.categoryName} // ✅ Unique key added
+                  value={category.categoryName} // ✅ Dynamic value
+                  className="px-4 py-2 border border-solid rounded-full flex gap-[8px]"
+                >
+                  <div>
+                    <p className="text-[#18181B] text-[14px] font-medium leading-5">
+                      {category.categoryName}
+                    </p>
+                  </div>
+                  {/* <Badge variant="default">{count}</Badge> */}
+                </ToggleGroupItem>
+              </ContextMenuTrigger>
+              <ContextMenuContent>
+                <ContextMenuItem>Edit</ContextMenuItem>
+                <ContextMenuItem onClick={() => deleteCategory(category._id)}>
+                  Delete
+                </ContextMenuItem>
+              </ContextMenuContent>
+            </ContextMenu>
           );
         })}
 
-        <PlusButtonPopOver />
+        <PlusButtonPopOver
+          handleChange={handleChange}
+          createCategory={createCategory}
+        />
       </ToggleGroup>
     </div>
   );

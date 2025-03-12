@@ -34,7 +34,8 @@ export default function foodMenu() {
   };
 
   const categoryCount = foods?.reduce((acc, food) => {
-    acc[food.category] = (acc[food.category] || 0) + 1;
+    acc[food.category.categoryName] =
+      (acc[food.category.categoryName] || 0) + 1;
     return acc;
   }, {});
   return (

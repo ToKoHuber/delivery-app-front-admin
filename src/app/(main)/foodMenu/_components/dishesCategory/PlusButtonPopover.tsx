@@ -3,6 +3,7 @@ import * as React from "react";
 
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -11,11 +12,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { PlusButton } from "../PlusButton";
-import { EditNewCategory } from "@/app/_components/cards/EditNewCategory";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-export function PlusButtonPopOver() {
+export function PlusButtonPopOver({ handleChange, createCategory }) {
   //   const [open, setOpen] = React.useState(false);
 
   return (
@@ -25,10 +25,30 @@ export function PlusButtonPopOver() {
           <PlusButton />
         </div>
       </DialogTrigger>
-      <DialogContent>
-        <DialogTitle>Add new category</DialogTitle>
-        {/* //sdad */}
-        <EditNewCategory />
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>Add new category</DialogTitle>
+          <DialogDescription>Category name</DialogDescription>
+        </DialogHeader>
+        <div className="flex items-center space-x-2">
+          <div className="grid flex-1 gap-2">
+            {/* <Label htmlFor="link" className="sr-only">
+              Link
+            </Label> */}
+            <Input
+              onChange={handleChange}
+              placeholder="Type category name..."
+              className="p-[8px 12px]"
+            />
+          </div>
+        </div>
+        <DialogFooter className="sm:justify-start">
+          <DialogClose asChild>
+            <Button type="button" onClick={createCategory}>
+              Add category
+            </Button>
+          </DialogClose>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
