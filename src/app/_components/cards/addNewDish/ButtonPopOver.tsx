@@ -74,7 +74,7 @@ const formSchema = z.object({
     }),
 });
 
-export function ButtonPopOver({ filteredDishes }) {
+export function ButtonPopOver({ category }) {
   const [foodImageFile, setFoodImageFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -113,7 +113,7 @@ export function ButtonPopOver({ filteredDishes }) {
         price: values.foodPrice,
         image: imageUrl,
         ingredients: values.ingredients,
-        category: `${filteredDishesCategoryId}`,
+        category: `${category._id}`,
       }),
     });
     const jsonData = await data.json();
