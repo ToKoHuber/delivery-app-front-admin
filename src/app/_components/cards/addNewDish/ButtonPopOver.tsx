@@ -239,8 +239,9 @@ export function ButtonPopOver({ filteredDishes }) {
                 </FormItem>
               )}
             />
-
-            <Button type="submit">Submit</Button>
+            <DialogClose asChild>
+              <Button type="submit">Submit</Button>
+            </DialogClose>
           </form>
         </Form>
 
