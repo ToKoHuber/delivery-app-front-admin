@@ -21,7 +21,7 @@ export default function foodMenu() {
   };
 
   const createCategory = async (category: string) => {
-    const data = await fetch("http://localhost:8000/food-category", {
+    const data = await fetch("http://localhost:4000/food-category", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
