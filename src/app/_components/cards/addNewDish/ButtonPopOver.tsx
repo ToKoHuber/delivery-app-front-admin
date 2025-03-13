@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogClose,
@@ -75,6 +75,7 @@ const formSchema = z.object({
 });
 
 export function ButtonPopOver({ category }) {
+  const [foods, setFoods] = useState([]);
   const [foodImageFile, setFoodImageFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -100,6 +101,18 @@ export function ButtonPopOver({ category }) {
     createFood(values);
   }
   // const filteredDishesCategoryId = filteredDishes[0].category._id;
+
+  const getFoods = async () => {
+    const data = await fetch("http://localhost:4000/food");
+    // console.log("data printing", data);
+    const jsonData = await data.json();
+    setFoods(jsonData.getFoods || []);
+    console.log("jsonData printing", jsonData);
+  };
+  useEffect(() => {
+    getFoods();
+  }, []);
+
   const createFood = async (values: z.infer<typeof formSchema>) => {
     const imageUrl = await uploadImage(foodImageFile);
 
@@ -119,6 +132,7 @@ export function ButtonPopOver({ category }) {
     const jsonData = await data.json();
 
     console.log("data", jsonData);
+    getFoods();
   };
 
   return (
@@ -132,26 +146,6 @@ export function ButtonPopOver({ category }) {
         <DialogTitle>Add new Dish to Appetizers</DialogTitle>
         <DialogDescription></DialogDescription>
 
-        {/* <CategoryInput setNewCategory={setNewCategory} /> */}
-
-        {/* category нэмэх хэрэгтэй бололтой */}
-
-        {/* <FoodImage file={file} image={image} handleFile={handleFile} /> */}
-
-        {/* <DialogFooter>
-          <DialogClose asChild>
-            <Button
-              onClick={async () => {
-                await handleUpload();
-                createFood();
-              }}
-            >
-              Add Dish
-            </Button>
-          </DialogClose>
-        </DialogFooter> */}
-
-        {/* <div className="w-screen h-screen flex flex-col justify-center items-center"> */}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="flex gap-6">
@@ -244,13 +238,6 @@ export function ButtonPopOver({ category }) {
             </DialogClose>
           </form>
         </Form>
-
-        {/* {previewUrl && (
-          <div className="border">
-            <img className="size-48 object-cover" src={previewUrl} alt="" />
-          </div>
-        )} */}
-        {/* </div> */}
       </DialogContent>
     </Dialog>
   );

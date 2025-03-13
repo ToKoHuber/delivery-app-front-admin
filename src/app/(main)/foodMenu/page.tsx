@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 export default function foodMenu() {
   const [foods, setFoods] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const getFoods = async () => {
     try {
@@ -19,9 +20,6 @@ export default function foodMenu() {
     }
   };
 
-  useEffect(() => {
-    getFoods();
-  }, []);
   const createCategory = async (category: string) => {
     const data = await fetch("http://localhost:8000/food-category", {
       method: "POST",
@@ -33,15 +31,23 @@ export default function foodMenu() {
     getFoods();
   };
 
-  const categoryCount = foods?.reduce((acc, food) => {
-    acc[food.category.categoryName] =
-      (acc[food.category.categoryName] || 0) + 1;
-    return acc;
-  }, {});
+  const getCategories = async () => {
+    const data = await fetch("http://localhost:4000/food-category");
+    // console.log("data printing", data);
+    const jsonData = await data.json();
+    setCategories(jsonData.getCategory || []);
+    console.log("jsonData printing", jsonData);
+  };
+
+  useEffect(() => {
+    getFoods();
+    getCategories();
+  }, []);
+
   return (
     <div className="flex flex-col px-4 gap-6 border border-red-500">
-      <Header />
-      <ProductLists foodsData={foods} />
+      <Header foodsData={foods} />
+      <ProductLists foodsData={foods} categories={categories} />
     </div>
   );
 }

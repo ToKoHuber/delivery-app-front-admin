@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/context-menu";
 import { EditButton } from "./EditButton";
 
-export default function DishCategories() {
+export default function DishCategories({ foodsData }) {
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [updatedCategory, setEditCategory] = useState("");
@@ -93,12 +93,17 @@ export default function DishCategories() {
                   value={category.categoryName} // ✅ Dynamic value
                   className="px-4 py-2 border border-solid rounded-full flex gap-[8px]"
                 >
-                  <div>
-                    <p className="text-[#18181B] text-[14px] font-medium leading-5">
-                      {category.categoryName}
-                    </p>
-                  </div>
-                  {/* <Badge variant="default">{count}</Badge> */}
+                  <p className="text-[#18181B] text-[14px] font-medium leading-5">
+                    {category.categoryName}
+                  </p>
+                  <Badge variant="default">
+                    {
+                      foodsData.filter(
+                        (food) =>
+                          food.category.categoryName === category.categoryName
+                      ).length
+                    }
+                  </Badge>
                 </ToggleGroupItem>
               </ContextMenuTrigger>
               <ContextMenuContent>
