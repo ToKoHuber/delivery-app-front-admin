@@ -72,7 +72,7 @@ export default function DishCategories() {
   };
 
   return (
-    <div className="w-[1171px] p-6 flex flex-col gap-4 rounded-xl bg-[#FAFAFA]">
+    <div className="max-w-[1171px] p-6 flex flex-col gap-4 rounded-xl bg-[#FAFAFA]">
       <div>
         <p className="text-5 font-semibold leading-7 text-[#09090B]">
           Dishes category

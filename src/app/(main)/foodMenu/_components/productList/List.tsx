@@ -36,7 +36,7 @@ export default function List({
   console.log("printing filteredDishedData to test", filteredDishes);
   console.log("list food printing", foods);
   return (
-    <div className="w-[1171px] p-5 flex flex-col gap-4 rounded-xl bg-[#FAFAFA]">
+    <div className="max-w-[1171px] p-5 flex flex-col gap-4 rounded-xl bg-[#FAFAFA]">
       <div className="text-5 font-semibold leading-7">
         <h4>
           {category} ({count})
