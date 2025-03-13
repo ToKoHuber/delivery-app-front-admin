@@ -21,7 +21,7 @@ export function EditButton() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <ContextMenuItem>Edit</ContextMenuItem>
+        {/* <ContextMenuItem>Edit</ContextMenuItem> */}
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>

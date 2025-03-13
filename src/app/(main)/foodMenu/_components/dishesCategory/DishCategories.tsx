@@ -89,10 +89,11 @@ export default function DishCategories({
       >
         {categories.map((category) => {
           return (
-            <ContextMenu>
+            <ContextMenu
+              key={category.categoryName} // ✅ Unique key added
+            >
               <ContextMenuTrigger>
                 <ToggleGroupItem
-                  key={category.categoryName} // ✅ Unique key added
                   value={category.categoryName} // ✅ Dynamic value
                   className="px-4 py-2 border border-solid rounded-full flex gap-[8px]"
                 >
