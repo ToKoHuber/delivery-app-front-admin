@@ -13,11 +13,7 @@ import {
 } from "@/components/ui/context-menu";
 import { EditButton } from "./EditButton";
 
-export default function DishCategories({
-  categoryCount,
-}: {
-  categoryCount: Record<string, number>;
-}) {
+export default function DishCategories() {
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [updatedCategory, setEditCategory] = useState("");

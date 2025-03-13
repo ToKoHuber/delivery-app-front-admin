@@ -40,7 +40,7 @@ export default function foodMenu() {
   }, {});
   return (
     <div className="flex flex-col px-4 gap-6 border border-red-500">
-      <Header categoryCount={categoryCount} />
+      <Header />
       <ProductLists categoryCount={categoryCount} />
     </div>
   );
