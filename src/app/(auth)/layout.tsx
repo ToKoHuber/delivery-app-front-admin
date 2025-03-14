@@ -6,11 +6,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex bg-[#D9D9D9]">
-      {/* <DeliveryPhoto /> */}
-      <div className="flex flex-col items-center w-full max-w-[calc(100vw-205px)] border border-red-500">
-        {children}
-      </div>
+    <div className="w-[100vw] h-[100vh] flex items-center justify-around bg-[#D9D9D9]">
+      {children}
+      <DeliveryPhoto />
     </div>
   );
 }

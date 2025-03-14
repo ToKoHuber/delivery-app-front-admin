@@ -27,7 +27,11 @@ export default function ProductLists({ foodsData, categories }) {
                 (food) => food.category.categoryName === category.categoryName
               )
               .map((food) => (
-                <ProductCard key={food._id} food={food} />
+                <ProductCard
+                  key={food._id}
+                  food={food}
+                  categories={categories}
+                />
               ))}
           </div>
         </div>

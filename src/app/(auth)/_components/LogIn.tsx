@@ -80,7 +80,7 @@ export function LoginForm() {
               <FormControl>
                 <Input
                   type="password"
-                  placeholder="Enter your email address"
+                  placeholder="Enter your password"
                   {...field}
                 />
               </FormControl>
@@ -89,7 +89,7 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Let's go</Button>
+        <Button type="submit">Log In</Button>
       </form>
     </Form>
   );

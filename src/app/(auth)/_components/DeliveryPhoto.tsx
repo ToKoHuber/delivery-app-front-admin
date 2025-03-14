@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function DeliveryPhoto() {
   return (
-    <div className="w-[856px] h-[904px] rounded-[16px] overflow-hidden border border-red-500">
+    <div className="rounded-[16px] overflow-hidden border border-red-500">
       <Image
         src="https://res.cloudinary.com/daevsbyyv/image/upload/v1739765383/cld-sample-3.jpg"
         width={856}

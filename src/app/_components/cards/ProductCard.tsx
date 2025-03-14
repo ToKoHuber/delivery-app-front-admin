@@ -3,7 +3,7 @@ import Image from "next/image";
 import EditPopover from "./editDishInfo/EditPopover";
 import { EditProfile } from "./editDishInfo/EditProfile";
 
-export const ProductCard = ({ food }) => {
+export const ProductCard = ({ food, categories }) => {
   console.log(food);
   return (
     <div className="w-[270.75px] h-[241px] p-4  flex flex-col gap-5 justify-center items-center border rounded-[20px] border-soid border-[#E4E4E7]">
@@ -16,7 +16,7 @@ export const ProductCard = ({ food }) => {
         />
         <div className="absolute bottom-5 right-5">
           {/* <EditPopover /> */}
-          <EditProfile />
+          <EditProfile categories={categories} food={food} />
         </div>
       </div>
 
