@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Pencil, Trash } from "lucide-react";
+import { Image, Pencil, Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,6 +31,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 
 const UPLOAD_PRESET = "food-delivery-app";
 const CLOUD_NAME = "794588517496998";
@@ -70,6 +71,8 @@ const formSchema = z.object({
 });
 
 export function EditProfile({ categories, food }) {
+  const [previewUrl, setPreviewUrl] = useState<string>();
+  const [foodImageFile, setFoodImageFile] = useState<File | null>(null);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -87,7 +90,18 @@ export function EditProfile({ categories, food }) {
     form.setValue("ingredients", food.ingredients);
     form.setValue("price", food.price);
     form.setValue("image", "uploaded");
+    setFoodImageFile(food.image);
   }, [food]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files![0];
+
+    setFoodImageFile(file);
+
+    const tempImageUrl = URL.createObjectURL(file);
+    setPreviewUrl(tempImageUrl);
+    form.setValue("image", "uploaded");
+  };
 
   return (
     <Dialog>
@@ -179,13 +193,37 @@ export function EditProfile({ categories, food }) {
             <FormField
               control={form.control}
               name="image"
-              render={({ field }) => (
-                <FormItem className="flex justify-between items-center">
-                  <FormLabel className="text-[12px] text-[#71717a]">
-                    Food image
-                  </FormLabel>
+              render={({ field: { onChange, value, ...rest } }) => (
+                <FormItem>
+                  <FormLabel>Food image</FormLabel>
                   <FormControl>
-                    <div className="w-[288px] h-[116px]"></div>
+                    <div>
+                      <label htmlFor="addNewDishImage">
+                        {previewUrl ? (
+                          <img
+                            className="w-[100%] max-h-[138px] object-contain"
+                            src={previewUrl}
+                            alt=""
+                          />
+                        ) : (
+                          <div className="flex flex-col items-center justify-center gap-2 w-[100%] h-[138px] rounded-[6px] p-4 bg-[#2563EB33] border border-dashed border-[#2563EB33]">
+                            <img
+                              className="w-[100%] max-h-[138px] object-contain"
+                              src={food.image}
+                              alt=""
+                            />
+                          </div>
+                        )}
+                      </label>
+                      <Input
+                        placeholder="image"
+                        id="addNewDishImage"
+                        type="file"
+                        className="hidden"
+                        onChange={handleChange}
+                        {...rest}
+                      />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
